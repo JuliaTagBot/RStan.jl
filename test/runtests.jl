@@ -1,11 +1,10 @@
 using RStan
-using RCall
 using Distributions
 using Base.Test
 
 # write your own tests here
 
-R"install.packages('rstan')"
+
 
 function coveragetest()
     X = Normal()

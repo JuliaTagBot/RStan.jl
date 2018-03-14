@@ -2,7 +2,7 @@ __precompile__()
 
 module RStan
 
-using RCall
+using RCall, DataFrames
 export rstan
 
 include("init.jl")
