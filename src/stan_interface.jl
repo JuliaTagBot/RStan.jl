@@ -1,15 +1,13 @@
 
 
 """
-This function calls rstan. Arguments:
-    model_code, a character string that contains your model.
-    Data, a list.
-    Keyword arguments:
-        adapt_delta
-        max_treedepth.
-    Feel free to edit this function and submit a pull request to add more functionality.
+This function calls rstan.
+It can be used as follows:
 
-    Note that you can call
+    rstan(model_code, data, iter = 1000; pars = missing, qnchains = 4, adapt_delta = 0.8, max_treedepth = 10)
+
+    Feel free to edit this function and submit a pull request to add more functionality.
+    The function can be edited by calling
 
     @edit rstan("", Dict())
     
