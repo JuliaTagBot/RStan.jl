@@ -15,7 +15,7 @@ It can be used as follows:
     You may want to set your editor first, eg:
     ENV["EDITOR"] = "code"
 """
-function rstan(model_code, data, iter = 1000; pars = missing, qnchains = 4, adapt_delta = 0.8, max_treedepth = 10)
+function rstan(model_code, data, iter = 1000; pars = missing, nchains = 4, adapt_delta = 0.8, max_treedepth = 10)
     @rput model_code
     @rput data
     @rput nchains
