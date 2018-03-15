@@ -4,7 +4,7 @@
 This function calls rstan.
 It can be used as follows:
 
-    rstan(model_code, data, iter = 1000; pars = missing, qnchains = 4, adapt_delta = 0.8, max_treedepth = 10)
+    rstan(model_code, data, iter = 1000; pars = missing, nchains = 4, adapt_delta = 0.8, max_treedepth = 10)
 
     Feel free to edit this function and submit a pull request to add more functionality.
     The function can be edited by calling
