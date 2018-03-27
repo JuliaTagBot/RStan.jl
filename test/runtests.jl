@@ -1,6 +1,30 @@
+using Compat, Compat.Test
+### Taken from the RCall tests.
+### https://github.com/JuliaInterop/RCall.jl/blob/master/test/runtests.jl
+hd = homedir()
+pd = Pkg.dir()
+
+if Compat.Sys.iswindows()
+    Rhome = if haskey(ENV,"R_HOME")
+        ENV["R_HOME"]
+    else
+        using WinReg
+        WinReg.querykey(WinReg.HKEY_LOCAL_MACHINE, "Software\\R-Core\\R","InstallPath")
+    end
+    Rscript = joinpath(Rhome,"bin",Sys.WORD_SIZE==64 ? "x64" : "i386", "Rscript")
+else
+    Rscript = "Rscript"
+end
+
+libpaths = readlines(`$Rscript -e "writeLines(.libPaths())"`)
+if VERSION < v"0.6.0"
+    libpaths = map(chomp, libpaths)
+end
+### end stolen from RCall.
+
+
 using RStan
 using Distributions
-using Base.Test
 
 # write your own tests here
 
